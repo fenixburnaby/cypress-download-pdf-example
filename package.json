@@ -1,0 +1,19 @@
+{
+  "name": "cypress-download-pdf-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^9.5.4",
+    "cypress-downloadfile": "^1.2.1"
+  },
+  "dependencies": {
+    "compare-pdf": "^1.1.6"
+  }
+}
