@@ -6,7 +6,7 @@ describe('compare 2 PDF files', () => {
         cy.visit(serverName)
     })
 
-    it('Download and compare PDFs succesfully', () => {
+/*    it('Download and compare PDFs succesfully', () => {
 
         cy.get('#capePdf').invoke('attr', 'href').then(linkUrl => {
             cy.downloadFile(serverName+linkUrl,'data/actualPdfs','cape.pdf');
@@ -32,5 +32,17 @@ describe('compare 2 PDF files', () => {
                 expect(result.status).to.equal("failed");
             });
         });
+    });*/
+
+    it('intercept an API call and get the response body', () => {
+        cy.intercept({
+            method: 'GET',
+            url: '**/posts/**',
+        }).as('apiCheck')
+
+        cy.wait('@apiCheck').then((interception) => {
+            cy.log('Response id: '+ interception.response.body.id)
+            assert.isNotNull(interception.response.body, '1st API call has data')
+        })
     });
 })
