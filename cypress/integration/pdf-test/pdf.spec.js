@@ -43,6 +43,8 @@ describe('compare 2 PDF files', () => {
         cy.wait('@apiCheck').then((interception) => {
             cy.log('Response id: '+ interception.response.body.id)
             assert.isNotNull(interception.response.body, '1st API call has data')
+
+            cy.get('[data_cy="fetched-title"]').contains('This is some fetched data:');
         })
     });
 })
